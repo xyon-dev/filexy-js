@@ -1,6 +1,6 @@
 /**
  * takes properly formatted data and converts
- *    it into a downloadable file.
+ * it into a downloadable file.
  * inputs: data to be added to file
  * param(targetElementID): target of the element that will 
  *    either be autoloaded by code or triggered by a button
@@ -21,38 +21,12 @@ export class Filexy{
      * in: array of strings representing rows
      * out: link to .csv download
      */
-    const blobData = [
-
-    ]
+    const blobData = data
     const blob = new Blob(blobData, {
       type: "application/csv",
     });
     const url = URL.createObjectURL(blob);
-    
-    
-    
-    // Target component
-    const dc = document.getElementById("download-container");
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = "test.csv"
-    a.innerText = "download csv";
-    dc.appendChild(a);
-    a.click();
-    console.log(url);
-  }
-  txt(data){
-    /**
-     * in: string | use \n to manually create new line
-     * out: link to .txt download
-     */
-  }
-  pdf(data){
-    /**
-     * in: TBD
-     * out: link to .pdf download
-     */
-    console.log('Coming Soon: pdf files not available yet.', data);
+    return url;
   }
 
 }
